@@ -1,0 +1,35 @@
+from django.db import models
+
+class RealEstateData(models.Model):
+    final_location = models.CharField(max_length=100)
+    year = models.IntegerField()
+    city = models.CharField(max_length=100)
+    loc_lat = models.FloatField()
+    loc_lng = models.FloatField()
+    total_sales_igr = models.BigIntegerField()
+    total_sold_igr = models.IntegerField()
+    flat_sold_igr = models.IntegerField()
+    office_sold_igr = models.IntegerField()
+    others_sold_igr = models.IntegerField()
+    shop_sold_igr = models.IntegerField()
+    commercial_sold_igr = models.IntegerField()
+    other_sold_igr = models.IntegerField()
+    residential_sold_igr = models.IntegerField()
+    flat_weighted_avg_rate = models.FloatField()
+    office_weighted_avg_rate = models.FloatField()
+    others_weighted_avg_rate = models.FloatField()
+    shop_weighted_avg_rate = models.FloatField()
+    flat_prevailing_rate_range = models.CharField(max_length=100)
+    office_prevailing_rate_range = models.CharField(max_length=100)
+    others_prevailing_rate_range = models.CharField(max_length=100)
+    shop_prevailing_rate_range = models.CharField(max_length=100)
+    total_units = models.IntegerField()
+    total_carpet_area = models.FloatField()
+    flat_total = models.IntegerField()  
+    shop_total = models.IntegerField() 
+    office_total = models.IntegerField() 
+    others_total = models.IntegerField()  
+
+    class Meta:
+        db_table = 'real_estate_data'
+        unique_together = ('final_location', 'year')
